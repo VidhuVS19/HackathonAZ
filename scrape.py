@@ -8,7 +8,7 @@ driver=webdriver.Chrome()
 #url="https://leetcode.com/problemset/all/?page="
 # Define the base URL and pattern for the pages
 base_url = "https://leetcode.com/problemset/all/?page="  
-url_pattern = r"leetcode\.com/problemset/all/?page=/\d+" 
+url_pattern = r"leetcode\.com/problemset/all/\?page=/\d+" 
 
 # List to store all extracted hrefs
 all_hrefs = []
@@ -29,7 +29,11 @@ for page_number in range(1, 55):  # Replace the range values with the desired pa
     # Find all <a> elements with a certain pattern in their href attribute
     pattern = r'leetcode\.com/problems/' 
     regex = re.compile(pattern)
-    a_elements = soup.find_all('a', href=regex)
+    try:
+        a_elements = soup.find_all('a', href=regex)
+    except:
+        #print("ERROR-1")
+        pass
 
     hrefs = [a.get('href') for a in a_elements]
     all_hrefs.extend(hrefs)
