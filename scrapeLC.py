@@ -12,13 +12,13 @@ all_hrefs = []
 problem_urls=[]
 
 # Loop through the pages
-for page_number in range(1, 55):  # Replace the range values with the desired page numbers
+for page_number in range(1, 55):
     # Construct the URL for the current page
     url = base_url + str(page_number)
     driver.get(url)
 
     # To wait a few seconds to give time for the page to load
-    time.sleep(5)
+    time.sleep(7)
 
     # Extract page source using BeautifulSoup
     html = driver.page_source
