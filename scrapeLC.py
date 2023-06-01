@@ -12,17 +12,23 @@ all_hrefs = []
 problem_urls=[]
 
 # Loop through the pages
-for page_number in range(1, 55):
+for page_number in range(1, 56):
     # Construct the URL for the current page
     url = base_url + str(page_number)
     driver.get(url)
 
     # To wait a few seconds to give time for the page to load
-    time.sleep(7)
+    time.sleep(5)
+
+    # Scroll to the bottom of the page to load all elements
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(5)
 
     # Extract page source using BeautifulSoup
     html = driver.page_source
     soup = BeautifulSoup(html, "html.parser")
+
+    time.sleep(5)
 
     # Find all <a> elements
     a_elements = soup.find_all('a')
