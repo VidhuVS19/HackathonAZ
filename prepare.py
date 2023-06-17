@@ -53,6 +53,8 @@ for index, line in enumerate(lines):
     words=token_seperator(line)
     words_in_body=token_seperator(document_contents[index])
     i+=1
+    words.append("ABCDEFGH?!")
+    #Since all problems are getting this particular string, relatively, it would be alright
     words.extend(words_in_body)
     documents.append(words)
     words=set(words)
