@@ -53,13 +53,11 @@ for index, line in enumerate(lines):
     words=token_seperator(line)
     words_in_body=token_seperator(document_contents[index])
     i+=1
+    words.extend(words_in_body)
     documents.append(words)
-    documents.append(words_in_body)
     words=set(words)
-    words_in_body=set(words_in_body)
-    words.update(words_in_body)
     for each_word in words:
-        if each_word not in documents:
+        if each_word not in vocab:
             vocab[each_word]=1
         else:
             vocab[each_word]+=1
