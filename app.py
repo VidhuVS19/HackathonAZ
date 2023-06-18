@@ -152,3 +152,6 @@ def home():
         q_terms = [term.lower() for term in query.strip().split()]
         results = calculate_sorted_order_of_documents(q_terms)[:20:]
     return render_template('index.html', form=form, results=results)
+
+if __name__ == "_main_":
+    app.run(debug=True)
