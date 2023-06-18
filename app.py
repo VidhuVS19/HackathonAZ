@@ -8,9 +8,9 @@ from wtforms import StringField, SubmitField
 
 def load_vocab():
     vocab = {}
-    with open('tf-idf/vocab.txt', 'r',encoding='utf-8') as f:
+    with open('tf-idf/vocab.txt', 'r',encoding='latin-1') as f:
         vocab_terms = f.readlines()
-    with open('tf-idf/idf-values.txt', 'r',encoding='utf-8') as f:
+    with open('tf-idf/idf-values.txt', 'r',encoding='latin-1') as f:
         idf_values = f.readlines()
     
     for (term,idf_value) in zip(vocab_terms, idf_values):
@@ -20,7 +20,7 @@ def load_vocab():
 
 def load_documents():
     documents = []
-    with open('tf-idf/documents.txt', 'r',encoding='utf-8') as f:
+    with open('tf-idf/documents.txt', 'r',encoding='latin-1') as f:
         documents = f.readlines()
     documents = [document.strip().split() for document in documents]
 
@@ -30,7 +30,7 @@ def load_documents():
 
 def load_inverted_index():
     inverted_index = {}
-    with open('tf-idf/inverted-index.txt', 'r',encoding='utf-8') as f:
+    with open('tf-idf/inverted-index.txt', 'r',encoding='latin-1') as f:
         inverted_index_terms = f.readlines()
 
     for row_num in range(0,len(inverted_index_terms),2):
@@ -42,7 +42,7 @@ def load_inverted_index():
     return inverted_index
 
 def load_Q_links():
-    with open('Qdata/leetcode.txt','r',encoding='utf-8') as f:
+    with open('Qdata/leetcode.txt','r',encoding='latin-1') as f:
         links=f.readlines()
     return links
 
