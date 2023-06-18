@@ -35,11 +35,15 @@ def load_inverted_index():
     print('Size of inverted index: ', len(inverted_index))
     return inverted_index
 
-
+def load_Q_links():
+    with open('Qdata/leetcode.txt','r') as f:
+        links=f.readlines()
+    return links
 
 vocab_idf_values = load_vocab()
 documents = load_documents()
 inverted_index = load_inverted_index()
+Q_links=load_Q_links()
 
 
 def get_tf_dictionary(term):
@@ -77,6 +81,8 @@ documents=new_list
 def calculate_sorted_order_of_documents(query_terms):
     potential_documents = {}
     for term in query_terms:
+        if term not in vocab_idf_values:
+            continue
         if vocab_idf_values[term] == 0:
             continue
         tf_values_by_document = get_tf_dictionary(term)
@@ -95,7 +101,7 @@ def calculate_sorted_order_of_documents(query_terms):
     potential_documents = dict(sorted(potential_documents.items(), key=lambda item: item[1], reverse=True))
 
     for document_index in potential_documents:
-        print('Document: ', documents[int(document_index)], ' Score: ', potential_documents[document_index],'\n\n')
+        print('Document: ', documents[int(document_index)], ' Score: ', potential_documents[document_index],'\n','Link: ', Q_links[int(document_index)],'\n')
 
 
 query_string = input('Enter your query: ')
