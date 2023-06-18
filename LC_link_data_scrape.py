@@ -21,6 +21,10 @@ with open(linkfileLC,"r") as file:
         html = driver.page_source
         soup = BeautifulSoup(html, "html.parser")
 
+        # time.sleep(7)
+        # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        # time.sleep(3)
+
         try:
             Title=soup.find_all(class_="flex h-full items-center")
         except:
