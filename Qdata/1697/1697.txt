@@ -1,5 +1,9 @@
-Given an asyncronous function fn and a time t in milliseconds, return a new time limited version of the input function.
-A time limited function is a function that is identical to the original unless it takes longer than t milliseconds to fulfill. In that case, it will reject with "Time Limit Exceeded".  Note that it should reject with a string, not an Error.
+Given an asynchronous function fn and a time t in milliseconds, return a new time limited version of the input function. fn takes arguments provided to the time limited function.
+The time limited function should follow these rules:
+
+If the fn completes within the time limit of t milliseconds, the time limited function should resolve with the result.
+If the execution of the fn exceeds the time limit, the time limited function should reject with the string "Time Limit Exceeded".
+
  
 Example 1:
 Input: 
@@ -11,6 +15,17 @@ inputs = [5]
 t = 50
 Output: {"rejected":"Time Limit Exceeded","time":50}
 Explanation:
+const limited = timeLimit(fn, t)
+const start = performance.now()
+let result;
+try {
+   const res = await limited(...inputs)
+   result = {"resolved": res, "time": Math.floor(performance.now() - start)};
+} catch (err) {
+   result = {"rejected": err, "time": Math.floor(performance.now() - start)};
+}
+console.log(result) // Output
+
 The provided function is set to resolve after 100ms. However, the time limit is set to 50ms. It rejects at t=50ms because the time limit was reached.
 
 Example 2:
@@ -35,7 +50,7 @@ inputs = [5,10]
 t = 150
 Output: {"resolved":15,"time":120}
 Explanation:
-The function resolved 5 + 10 = 15 at t=120ms. The time limit is never reached.
+​​​​The function resolved 5 + 10 = 15 at t=120ms. The time limit is never reached.
 
 Example 4:
 Input: 

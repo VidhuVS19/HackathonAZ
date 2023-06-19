@@ -2175,6 +2175,38 @@
 639. Decode Ways II
 2584. Split the Array to Make Coprime Products
 226. Invert Binary Tree
+1017. Convert to Base -2
+50. Pow(x, n)
+432. All O`one Data Structure
+1017. Convert to Base -2
+50. Pow(x, n)
+432. All O`one Data Structure
+470. Implement Rand10() Using Rand7()
+1576. Replace All ?'s to Avoid Consecutive Repeating Characters
+8. String to Integer (atoi)
+208. Implement Trie (Prefix Tree)
+118. Pascal's Triangle
+1411. Number of Ways to Paint N × 3 Grid
+602. Friend Requests II: Who Has the Most Friends
+167. Two Sum II - Input Array Is Sorted
+653. Two Sum IV - Input is a BST
+2134. Minimum Swaps to Group All 1's Together II
+119. Pascal's Triangle II
+303. Range Sum Query - Immutable
+1437. Check If All 1's Are at Least Length K Places Away
+785. Is Graph Bipartite?
+1333. Filter Restaurants by Vegan-Friendly, Price and Distance
+380. Insert Delete GetRandom O(1)
+1287. Element Appearing More Than 25% In Sorted Array
+307. Range Sum Query - Mutable
+1393. Capital Gain/Loss
+69. Sqrt(x)
+1744. Can You Eat Your Favorite Candy on Your Favorite Day?
+446. Arithmetic Slices II - Subsequence
+304. Range Sum Query 2D - Immutable
+2124. Check if All A's Appears Before All B's
+1493. Longest Subarray of 1's After Deleting One Element
+381. Insert Delete GetRandom O(1) - Duplicates allowed
 1769. Minimum Number of Operations to Move All Balls to Each Box
 2666. Allow One Function Call
 1203. Sort Items by Groups Respecting Dependencies

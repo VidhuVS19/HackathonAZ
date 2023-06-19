@@ -1,29 +1,36 @@
-There are n items each belonging to zero or one of m groups where group[i] is the group that the i-th item belongs to and it's equal to -1 if the i-th item belongs to no group. The items and the groups are zero indexed. A group can have no item belonging to it.
-Return a sorted list of the items such that:
+Design a data structure to store the strings' count with the ability to return the strings with minimum and maximum counts.
+Implement the AllOne class:
 
-The items that belong to the same group are next to each other in the sorted list.
-There are some relations between these items where beforeItems[i] is a list containing all the items that should come before the i-th item in the sorted array (to the left of the i-th item).
+AllOne() Initializes the object of the data structure.
+inc(String key) Increments the count of the string key by 1. If key does not exist in the data structure, insert it with count 1.
+dec(String key) Decrements the count of the string key by 1. If the count of key is 0 after the decrement, remove it from the data structure. It is guaranteed that key exists in the data structure before the decrement.
+getMaxKey() Returns one of the keys with the maximal count. If no element exists, return an empty string "".
+getMinKey() Returns one of the keys with the minimum count. If no element exists, return an empty string "".
 
-Return any solution if there is more than one solution and return an empty list if there is no solution.
+Note that each function must run in O(1) average time complexity.
  
 Example 1:
+Input
+["AllOne", "inc", "inc", "getMaxKey", "getMinKey", "inc", "getMaxKey", "getMinKey"]
+[[], ["hello"], ["hello"], [], [], ["leet"], [], []]
+Output
+[null, null, null, "hello", "hello", null, "hello", "leet"]
 
-Input: n = 8, m = 2, group = [-1,-1,1,0,0,1,0,-1], beforeItems = [[],[6],[5],[6],[3,6],[],[],[]]
-Output: [6,3,4,1,5,2,0,7]
-
-Example 2:
-Input: n = 8, m = 2, group = [-1,-1,1,0,0,1,0,-1], beforeItems = [[],[6],[5],[6],[3],[],[4],[]]
-Output: []
-Explanation: This is the same as example 1 except that 4 needs to be before 6 in the sorted list.
+Explanation
+AllOne allOne = new AllOne();
+allOne.inc("hello");
+allOne.inc("hello");
+allOne.getMaxKey(); // return "hello"
+allOne.getMinKey(); // return "hello"
+allOne.inc("leet");
+allOne.getMaxKey(); // return "hello"
+allOne.getMinKey(); // return "leet"
 
  
 Constraints:
 
-1 <= m <= n <= 3 * 104
-group.length == beforeItems.length == n
--1 <= group[i] <= m - 1
-0 <= beforeItems[i].length <= n - 1
-0 <= beforeItems[i][j] <= n - 1
-i != beforeItems[i][j]
-beforeItems[i] does not contain duplicates elements.
+1 <= key.length <= 10
+key consists of lowercase English letters.
+It is guaranteed that for each call to dec, key is existing in the data structure.
+At most 5 * 104 calls will be made to inc, dec, getMaxKey, and getMinKey.
 

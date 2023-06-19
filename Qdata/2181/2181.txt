@@ -1,21 +1,23 @@
-Given the head of a singly linked list, return the middle node of the linked list.
-If there are two middle nodes, return the second middle node.
+Given an integer n, return a binary string representing its representation in base -2.
+Note that the returned string should not have leading zeros unless the string is "0".
  
 Example 1:
-
-Input: head = [1,2,3,4,5]
-Output: [3,4,5]
-Explanation: The middle node of the list is node 3.
+Input: n = 2
+Output: "110"
+Explantion: (-2)2 + (-2)1 = 2
 
 Example 2:
+Input: n = 3
+Output: "111"
+Explantion: (-2)2 + (-2)1 + (-2)0 = 3
 
-Input: head = [1,2,3,4,5,6]
-Output: [4,5,6]
-Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
+Example 3:
+Input: n = 4
+Output: "100"
+Explantion: (-2)2 = 4
 
  
 Constraints:
 
-The number of nodes in the list is in the range [1, 100].
-1 <= Node.val <= 100
+0 <= n <= 109
 

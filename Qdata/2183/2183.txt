@@ -1,21 +1,36 @@
-You are given an array of strings words and a string chars.
-A string is good if it can be formed by characters from chars (each character can only be used once).
-Return the sum of lengths of all good strings in words.
+Design a data structure to store the strings' count with the ability to return the strings with minimum and maximum counts.
+Implement the AllOne class:
+
+AllOne() Initializes the object of the data structure.
+inc(String key) Increments the count of the string key by 1. If key does not exist in the data structure, insert it with count 1.
+dec(String key) Decrements the count of the string key by 1. If the count of key is 0 after the decrement, remove it from the data structure. It is guaranteed that key exists in the data structure before the decrement.
+getMaxKey() Returns one of the keys with the maximal count. If no element exists, return an empty string "".
+getMinKey() Returns one of the keys with the minimum count. If no element exists, return an empty string "".
+
+Note that each function must run in O(1) average time complexity.
  
 Example 1:
-Input: words = ["cat","bt","hat","tree"], chars = "atach"
-Output: 6
-Explanation: The strings that can be formed are "cat" and "hat" so the answer is 3 + 3 = 6.
+Input
+["AllOne", "inc", "inc", "getMaxKey", "getMinKey", "inc", "getMaxKey", "getMinKey"]
+[[], ["hello"], ["hello"], [], [], ["leet"], [], []]
+Output
+[null, null, null, "hello", "hello", null, "hello", "leet"]
 
-Example 2:
-Input: words = ["hello","world","leetcode"], chars = "welldonehoneyr"
-Output: 10
-Explanation: The strings that can be formed are "hello" and "world" so the answer is 5 + 5 = 10.
+Explanation
+AllOne allOne = new AllOne();
+allOne.inc("hello");
+allOne.inc("hello");
+allOne.getMaxKey(); // return "hello"
+allOne.getMinKey(); // return "hello"
+allOne.inc("leet");
+allOne.getMaxKey(); // return "hello"
+allOne.getMinKey(); // return "leet"
 
  
 Constraints:
 
-1 <= words.length <= 1000
-1 <= words[i].length, chars.length <= 100
-words[i] and chars consist of lowercase English letters.
+1 <= key.length <= 10
+key consists of lowercase English letters.
+It is guaranteed that for each call to dec, key is existing in the data structure.
+At most 5 * 104 calls will be made to inc, dec, getMaxKey, and getMinKey.
 
