@@ -120,7 +120,8 @@ def calculate_sorted_order_of_documents(query_terms):
         #print('Document: ', documents[int(document_index)], ' Score: ', potential_documents[document_index],'\n','Link: ', Q_link_string,'\n')
         #print('Document: ', documents[1], ' Score: ', potential_documents[1],'\n','Link: ', Q_link_string,'\n')
         #ans.append({"Question Link": Q_links[int(document_index)][:-2], "Score": potential_documents[document_index]})
-        ans.append({"Question Link": Q_link_string, "Score": potential_documents[document_index]})
+        question = ' '.join(documents[int(document_index)])
+        ans.append({"Question": question, "Question Link": Q_link_string})
     return ans
 
 app = Flask(__name__)
@@ -140,7 +141,7 @@ class SearchForm(FlaskForm):
 @app.route("/<query>")
 def return_links(query):
     q_terms = [term.lower() for term in query.strip().split()]
-    return jsonify(calculate_sorted_order_of_documents(q_terms)[:2:])
+    return jsonify(calculate_sorted_order_of_documents(q_terms)[:20:])
 
 
 @app.route("/", methods=['GET', 'POST'])
