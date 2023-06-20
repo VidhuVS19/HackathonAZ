@@ -48,6 +48,7 @@ $ python app.py
 
 This will start the Flask web server, and you should see the application running at `http://localhost:5000`.
 
+Type your search terms in the search box and press Enter, a number of leetcode links will be displayed with the required problems.
 
 ## License
 
