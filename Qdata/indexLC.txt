@@ -2222,3 +2222,5 @@
 789. Escape The Ghosts
 1617. Count Subtrees With Max Distance Between Cities
 1323. Maximum 69 Number
+1017. Convert to Base -2
+50. Pow(x, n)

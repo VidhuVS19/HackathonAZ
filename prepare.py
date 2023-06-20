@@ -39,7 +39,7 @@ def read_documents(file_paths):
     return document_contents
 
 file_paths=[]
-for i in range (1,2193):
+for i in range (1,2227):
     each_file_path="Qdata/"+str(i)+"/"+str(i)+".txt"
     file_paths.append(each_file_path)
 document_contents=read_documents(file_paths)
@@ -66,15 +66,15 @@ for index, line in enumerate(lines):
 
 vocab = dict(sorted(vocab.items(), key=lambda item: item[1], reverse=True))
 
-with open('tf-idf/vocab.txt', 'w') as f:
+with open('tf-idf/vocab.txt', 'w',encoding="utf-8") as f:
     for key in vocab.keys():
         f.write("%s\n" % key)
 
-with open('tf-idf/idf-values.txt', 'w') as f:
+with open('tf-idf/idf-values.txt', 'w',encoding="utf-8") as f:
     for key in vocab.keys():
         f.write("%s\n" % vocab[key])
 
-with open('tf-idf/documents.txt', 'w') as f:
+with open('tf-idf/documents.txt', 'w',encoding="utf-8") as f:
     for document in documents:
         f.write("%s\n" % ' '.join(document))
 
@@ -86,7 +86,7 @@ for index, document in enumerate(documents):
         else:
             inverted_index[token].append(index)
 
-with open('tf-idf/inverted-index.txt', 'w') as f:
+with open('tf-idf/inverted-index.txt', 'w',encoding="utf-8") as f:
     for key in inverted_index.keys():
         f.write("%s\n" % key)
         f.write("%s\n" % ' '.join([str(doc_id) for doc_id in inverted_index[key]]))

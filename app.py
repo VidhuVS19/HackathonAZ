@@ -140,7 +140,7 @@ class SearchForm(FlaskForm):
 @app.route("/<query>")
 def return_links(query):
     q_terms = [term.lower() for term in query.strip().split()]
-    return jsonify(calculate_sorted_order_of_documents(q_terms)[:20:])
+    return jsonify(calculate_sorted_order_of_documents(q_terms)[:2:])
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -150,7 +150,7 @@ def home():
     if form.validate_on_submit():
         query = form.search.data
         q_terms = [term.lower() for term in query.strip().split()]
-        results = calculate_sorted_order_of_documents(q_terms)[:20:]
+        results = calculate_sorted_order_of_documents(q_terms)[:2:]
     return render_template('index.html', form=form, results=results)
 
 if __name__ == "__main__":
