@@ -23,7 +23,7 @@ Make sure you have the following installed:
 1. Clone this repository to your local machine using the following command:
 
 ```
-$ git clone <repository_url>
+$ git clone https://github.com/VidhuVS19/HackathonAZ
 ```
 
 2. Change into the project directory:
